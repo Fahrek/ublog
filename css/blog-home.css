@@ -1,0 +1,10 @@
+body {
+	/*  padding requerido por .navbar-fixed-top. 
+		Quitarlo si se usa .navbar-static-top. 
+		Cambiarlo si cambia el height. */
+    padding-top: 70px; 
+}
+
+footer {
+    margin: 50px 0;
+}
