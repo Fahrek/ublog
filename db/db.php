@@ -4,6 +4,8 @@ $db = 'ublog';
 $user = 'thinway';
 $pass = 'fran1234';
 
+$salt = 'ZoB[GKL&o5Pa<HHRD5E_3Kr:,VL<pz5J';
+
 try{
     $pdo = new PDO('mysql:host='.$host.';dbname='.$db, $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

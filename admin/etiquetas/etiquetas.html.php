@@ -10,13 +10,15 @@ function reemplazo($url = NULL)
 			'Ñ'=>'n',
 			'Ó'=>'o',
 			'Ú'=>'u',
+			'Ü'=>'u',
 			'á'=>'a',
 			'ç'=>'c',
 			'é'=>'e',
-		        'í'=>'i',
+		    'í'=>'i',
 			'ñ'=>'n',
 			'ó'=>'o',
 			'ú'=>'u',
+			'ü'=>'u',
 		);
 		$url = strtr($url, $table);
 		//Añadimos los guiones

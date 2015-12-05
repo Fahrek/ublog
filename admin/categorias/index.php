@@ -1,6 +1,6 @@
 <?php
 require_once '../../app/config.php';
-require_once '../../app/db.php';
+require_once '../../db/db.php';
 
 if( isset($_GET['edit']) ){
     $newCatName = htmlspecialchars($_POST['nombre'],ENT_QUOTES, 'UTF-8');

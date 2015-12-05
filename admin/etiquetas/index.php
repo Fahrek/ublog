@@ -1,6 +1,6 @@
 <?php
 require_once '../../app/config.php';
-require_once '../../app/db.php';
+require_once '../../db/db.php';
 
 if( isset($_GET['add']) ){
     $tag = htmlspecialchars($_POST['tag'], ENT_QUOTES, 'UTF-8');
@@ -59,7 +59,7 @@ if( isset($_GET['delete']) && is_numeric($_GET['id']) ){
         $ps->bindValue(':idtag', $idtag);
         $ps->execute();
     }catch(PDOException $e){
-        die("No se ha podido extraer información de la base de datos:". $e->getMessage());
+        die("No se ha podido eliminar la información de la base de datos:". $e->getMessage());
     }
     header("Location: .");
     exit();
