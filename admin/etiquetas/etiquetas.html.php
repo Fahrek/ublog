@@ -1,8 +1,14 @@
 <?php
+/**
+ * Genera una friendly string de un string cualquiera.
+ *
+ * @param null $url
+ * @return mixed|null|string
+*/
 function reemplazo($url = NULL)
 	{
 		//Reemplazamos caracteres especiales latinos en Mayúscula por culpa de un bug con strtolower
-		$table = array(
+		$table = [
 		    'Á'=>'A',
 			'Ç'=>'c',
 			'É'=>'e',
@@ -19,7 +25,7 @@ function reemplazo($url = NULL)
 			'ó'=>'o',
 			'ú'=>'u',
 			'ü'=>'u',
-		);
+		];
 		$url = strtr($url, $table);
 		//Añadimos los guiones
 		$url = strtolower(trim($url));

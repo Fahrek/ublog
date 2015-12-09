@@ -129,6 +129,7 @@
                     <h1 class="page-header">
                         <?=$info['title']?> <small><?=$info['subtitle']?></small>
                     </h1>
+
                     <ol class="breadcrumb">
                         <li class="active">
                             <i class="fa fa-dashboard"></i> Admin
