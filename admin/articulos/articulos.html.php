@@ -26,30 +26,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($posts as $post): ?>
                         <tr>
-                            <td>añlksdjf añdjfñlads jfñalksdf</td>
-                            <td>asdfa</td>
-                            <td>sdfg, sdf, ssdfgsdfg</td>
+                            <td><?=$post['title']?></td>
+                            <td>
+                                <?php generarLista($post['categorias']); ?>
+                            </td>
+                            <td>
+                                <?php generarLista($post['tags']); ?>
+                            </td>
                             <td>34</td>
                             <td><i class="fa fa-pencil-square-o"></i></td>
                             <td><i class="fa fa-times"></i></td>
                         </tr>
-                        <tr>
-                            <td>añlksdjf añdjfñlads jfñalksdf</td>
-                            <td>sdfgsfdg</td>
-                            <td>lasdfj, kasdfasdf, askdfasdf, asdfa</td>
-                            <td>55</td>
-                            <td><i class="fa fa-pencil-square-o"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                        </tr>
-                        <tr>
-                            <td>añlksdjf añdjfñlads jfñalksdf</td>
-                            <td>asdfasdf</td>
-                            <td>lasdfj, kasdfasdf, askdfasdf, asdfa</td>
-                            <td>23</td>
-                            <td><i class="fa fa-pencil-square-o"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
