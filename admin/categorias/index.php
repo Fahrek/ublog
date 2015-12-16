@@ -2,6 +2,8 @@
 require_once '../../app/config.php';
 require_once '../../db/db.php';
 
+session_start();
+
 if( isset($_GET['edit']) ){
     $newCatName = htmlspecialchars($_POST['nombre'],ENT_QUOTES, 'UTF-8');
     $idcat = $_POST['idcat'];

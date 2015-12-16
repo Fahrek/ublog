@@ -2,6 +2,8 @@
 require_once '../../app/config.php';
 require_once '../../db/db.php';
 
+session_start();
+
 if( isset($_GET['add']) ){
     $tag = htmlspecialchars($_POST['tag'], ENT_QUOTES, 'UTF-8');
 

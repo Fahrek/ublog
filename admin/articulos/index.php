@@ -5,6 +5,8 @@ require_once '../../db/categorias.php';
 require_once '../../db/tags.php';
 require_once '../../db/util.php';
 
+session_start();
+
 if( isset($_GET['new']) ){
     //Extraigo las categorías
     $categories = categories();
@@ -14,15 +16,14 @@ if( isset($_GET['new']) ){
 
     require_once 'form_articulo.html.php';
 }else if( isset($_GET['add']) ) {
-//    print_r($_POST);
-//    exit();
     // Se captura la entrada por POST
     $titulo = htmlspecialchars($_POST['titulo'],ENT_QUOTES, 'UTF-8');
     $extracto = htmlspecialchars($_POST['extracto'],ENT_QUOTES, 'UTF-8');
     $contenido = htmlspecialchars($_POST['contenido'],ENT_QUOTES, 'UTF-8');
     if( isset($_POST['categorias']) ) $categorias = $_POST['categorias'];
     if( isset($_POST['tags']) ) $tags = $_POST['tags'];
-
+    $id_autor = $_SESSION['user']['id'];
+    
     $errores = [];
 
     if( $titulo == "" ){
@@ -43,7 +44,7 @@ if( isset($_GET['new']) ){
         try{
             // Se construye la consulta
             $insertPostInfo =
-                "INSERT INTO posts (id_author, title, slug, excerpt, content) VALUES (3, :title, :slug, :excerpt, :content); ";
+                "INSERT INTO posts (id_author, title, slug, excerpt, content) VALUES (:id_author, :title, :slug, :excerpt, :content); ";
 
             if( !empty($categorias) ){
                 foreach($categorias as $categoria){
@@ -60,6 +61,7 @@ if( isset($_GET['new']) ){
             }
 
             $ps = $pdo->prepare($insertPostInfo);
+            $ps->bindValue(':id_author', $id_autor);
             $ps->bindValue(':title', $titulo);
             $ps->bindValue(':slug', $slug);
             $ps->bindValue(':excerpt', $extracto);
@@ -138,13 +140,5 @@ if( isset($_GET['new']) ){
         $tags = [];
     }
 
-//    echo '<pre>';
-//    print_r($posts);
-//    echo '</pre>';
-//    echo '<br>';
-//    print_r($categorias);
-//    echo '<br>';
-//    print_r($tags);
-//    exit();
     require_once 'articulos.html.php';
 }

@@ -3,6 +3,8 @@ require_once '../../app/config.php';
 require_once '../../db/db.php';
 require_once '../../db/authors.php';
 
+session_start();
+
 if( isset($_GET['add']) ){
     $mote = htmlspecialchars($_POST['mote'], ENT_QUOTES, 'UTF-8');
     $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
